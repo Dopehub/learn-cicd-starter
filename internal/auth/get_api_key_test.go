@@ -35,7 +35,7 @@ func TestGetAPIKey(t *testing.T) {
 			},
 			expectedKey: "",
 			expectError: true,
-		          },
+		},
 		{
 			name: "empty api key",
 			headers: http.Header{
