@@ -20,6 +20,12 @@ jobs:
 
       - name: Run unit tests
         run: go test -cover ./...
+
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+      - name: gosec
+        run: gosec ./...
+        
   styles:
     name: Style
     runs-on: ubuntu-latest
@@ -40,8 +46,3 @@ jobs:
         run: go install honnef.co/go/tools/cmd/staticcheck@latest
       - name: Perform staticcheck
         run: staticcheck ./...
-      
-      - name: Install gosec
-        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
-      - name: gosec
-        run: gosec ./...
