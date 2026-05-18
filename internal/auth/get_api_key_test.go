@@ -49,9 +49,6 @@ func TestGetAPIKey(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 
-			t.Logf("TEST CASE: %s", tt.name)
-			t.Logf("INPUT: Authorization=%v", tt.headers.Get("Authorization"))
-
 			apiKey, err := GetAPIKey(tt.headers)
 
 			if tt.expectError {
@@ -66,8 +63,6 @@ func TestGetAPIKey(t *testing.T) {
 				return
 			}
 
-			t.Logf("OUTPUT: apiKey=%s", apiKey)
-
 			if err != nil {
 				t.Fatalf("did not expect error but got %v", err)
 			}
@@ -75,7 +70,6 @@ func TestGetAPIKey(t *testing.T) {
 			if apiKey != tt.expectedKey {
 				t.Fatalf("expected api key %q but got %q", tt.expectedKey, apiKey)
 			}
-			t.Logf("SUCCESS ✔")
 		})
 	}
 }
