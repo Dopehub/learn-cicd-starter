@@ -22,7 +22,7 @@ type apiConfig struct {
 }
 
 func unused() {
-	
+
 }
 
 //go:embed static/*
